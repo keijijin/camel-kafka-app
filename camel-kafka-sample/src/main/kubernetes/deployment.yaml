@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camel-kafka-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camel-kafka-app
+  template:
+    metadata:
+      labels:
+        app: camel-kafka-app
+    spec:
+      containers:
+      - name: camel-kafka-app
+        image: keijijin/camel-kafka-app:latest
+        envFrom:
+        - configMapRef:
+            name: camel-app-config
