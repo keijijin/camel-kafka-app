@@ -38,7 +38,7 @@
 
 2. Dockerイメージをビルドします。
    ```sh
-   docker build -t <your-dockerhub-username>/camel-quarkus-app:latest .
+   docker build -t <your-dockerhub-username>/camel-kafka-app:latest .
    ```
 
 ### ステップ3: DockerイメージをDocker Hubにプッシュ
@@ -50,7 +50,7 @@
 
 2. イメージをプッシュします。
    ```sh
-   docker push <your-dockerhub-username>/camel-quarkus-app:latest
+   docker push <your-dockerhub-username>/camel-kafka-app:latest
    ```
 
 ## 2. KafkaをKubernetesにデプロイ
@@ -109,7 +109,7 @@
 
 1. Camelアプリケーションポッドの状態を確認します。
    ```sh
-   kubectl get pods -l app=camel-quarkus-app -n kafka
+   kubectl get pods -l app=camel-kafka-app -n kafka
    ```
 
 2. サービスが稼働していることを確認します。
@@ -124,7 +124,12 @@
    kubectl get ingress -n kafka
    ```
 
-2. `curl`または任意のAPIクライアントを使用してRESTエンドポイントをテストします。
+2. ログの確認
+   ```sh
+   kubectl logs -f $(kubectl get pods -n kafka -l app=camel-kafka-app -o name) -n kafka
+   ```
+
+3. `curl`または任意のAPIクライアントを使用してRESTエンドポイントをテストします。
    ```sh
    curl --request POST \
    --url http://localhost/logs \
