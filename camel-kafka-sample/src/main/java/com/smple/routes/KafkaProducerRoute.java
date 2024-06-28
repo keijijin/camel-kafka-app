@@ -8,9 +8,9 @@ public class KafkaProducerRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("timer:producer?period=5000")
-                .setBody(simple("Message generated at ${date:now:yyyy-MM-dd HH:mm:ss}"))
-                .to("kafka:messages?brokers={{kafka.brokers}}")
-                .log("Sent message: ${body}");
+        // from("timer:producer?period=5000")
+        //         .setBody(simple("Message generated at ${date:now:yyyy-MM-dd HH:mm:ss}"))
+        //         .to("kafka:messages?brokers={{kafka.brokers}}")
+        //         .log("Sent message: ${body}");
     }
 }

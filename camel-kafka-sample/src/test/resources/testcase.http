@@ -1,0 +1,16 @@
+POST http://localhost:8080/logs
+Content-Type: application/json
+Accept: application/json
+
+{
+    "message": "Hello World!!!"
+}
+
+###
+POST http://localhost/logs
+Content-Type: application/json
+Accept: application/json
+
+{
+    "message": "HelloHelloHello World!!!"
+}
