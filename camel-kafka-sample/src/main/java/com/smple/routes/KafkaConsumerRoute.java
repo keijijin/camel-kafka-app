@@ -9,7 +9,7 @@ public class KafkaConsumerRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from("kafka:logs?brokers={{kafka.brokers}}")
-                .log("Received message: ${body}")
+                .log("Received message: ${header[kafka.KEY]} -- ${body}")
                 .to("log:received-messages");
     }
 }

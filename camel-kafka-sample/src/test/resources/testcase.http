@@ -12,5 +12,5 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "message": "HelloHelloHello World!!!"
+    "message": "Hello World!!!"
 }
